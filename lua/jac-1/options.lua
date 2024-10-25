@@ -1,14 +1,16 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.opt.relativenumber = true
+
 vim.g.have_nerd_font = true
 
 vim.opt.number = true
 vim.opt.mouse = 'a'
 vim.opt.showmode = false
-vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
-end)
+-- vim.schedule(function()
+--   vim.opt.clipboard = 'unnamedplus'
+-- end)
 vim.opt.breakindent = true
 vim.opt.undofile = true
 
@@ -36,3 +38,5 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+
+-- Terminal
