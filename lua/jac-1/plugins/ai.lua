@@ -12,10 +12,10 @@ return {
       require('codecompanion').setup {
         strategies = {
           chat = {
-            adapter = 'anthropic_hiku',
+            adapter = 'anthropic_sonnet',
           },
           inline = {
-            adapter = 'anthropic_hiku',
+            adapter = 'anthropic_sonnet',
           },
           agent = {
             adapter = 'anthropic_sonnet',
