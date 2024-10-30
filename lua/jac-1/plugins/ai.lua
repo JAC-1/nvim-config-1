@@ -1,3 +1,4 @@
+-- Test line for configuration
 return {
   {
     'olimorris/codecompanion.nvim',
@@ -20,6 +21,13 @@ return {
           agent = {
             adapter = 'anthropic_sonnet',
           },
+        },
+        display = {
+          chat = {
+            window = {
+              layout = "float"
+          },
+  },
         },
         adapters = {
           anthropic_sonnet = function()
