@@ -31,14 +31,12 @@ vim.keymap.set('n', '<leader>e', ':Ex<CR>', { desc = 'Open netrw' })
 
 
 -- Ai
-vim.api.nvim_set_keymap("n", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true, desc = "Open CodeCompanion Actions" })
-vim.api.nvim_set_keymap("v", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true, desc = "Open CodeCompanion ACtions" })
-vim.api.nvim_set_keymap("n", "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true, desc = "Toggle CodeCompanion Chat"})
-vim.api.nvim_set_keymap("v", "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true, desc = "Toggle CodeCompanion Chat" })
-vim.api.nvim_set_keymap("t", "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true, desc = "Toggle CodeCompanion Chat" })
-vim.api.nvim_set_keymap("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true, desc = "Add to CodeCompanino Chat"})
-
--- Expand 'cc' into 'CodeCompanion' in the command line
+vim.keymap.set("n", "<C-a>", "<cmd>CodeCompanionActions<cr>", { silent = true, desc = "Open CodeCompanion Actions" })
+vim.keymap.set("v", "<C-a>", "<cmd>CodeCompanionActions<cr>", { silent = true, desc = "Open CodeCompanion Actions" })
+vim.keymap.set("n", "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", { silent = true, desc = "Toggle CodeCompanion Chat"})
+vim.keymap.set("v", "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", { silent = true, desc = "Toggle CodeCompanion Chat" })
+vim.keymap.set("t", "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", { silent = true, desc = "Toggle CodeCompanion Chat" })
+vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { silent = true, desc = "Add to CodeCompanion Chat"})
 vim.cmd([[cab cc CodeCompanion]])
 
 -- Terminal

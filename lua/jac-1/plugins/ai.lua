@@ -13,21 +13,24 @@ return {
       require('codecompanion').setup {
         strategies = {
           chat = {
-            adapter = 'anthropic_sonnet',
+            adapter = 'copilot',
           },
           inline = {
-            adapter = 'anthropic_sonnet',
+            adapter = 'copilot',
           },
           agent = {
-            adapter = 'anthropic_sonnet',
+            adapter = 'copilot',
           },
         },
         display = {
           chat = {
             window = {
-              layout = "float"
+              layout = 'float',
+            },
+            diff = {
+              enabled = false,
+            },
           },
-  },
         },
         adapters = {
           anthropic_sonnet = function()
