@@ -28,7 +28,7 @@ vim.keymap.set('n', '<A-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
-vim.keymap.set('n', '<leader>e', ':Ex<CR>', { desc = 'Open netrw' })
+-- vim.keymap.set('n', '<leader>e', ':Ex<CR>', { desc = 'Open netrw' })
 
 
 -- Ai
@@ -43,3 +43,6 @@ vim.cmd([[cab cc CodeCompanion]])
 -- Terminal
 vim.keymap.set('t', '<C-t>', '<C-\\><C-n>:ToggleTerm<CR>', { desc = 'Toggle terminal'})
 vim.keymap.set('n', '<C-t>', ':ToggleTerm<CR>', { desc = 'Toggle terminal'})
+
+-- Neotree
+vim.keymap.set('n', '<leader>e', ':Neotree<CR>', { desc = 'Toggle Neotree'})
