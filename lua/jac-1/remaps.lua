@@ -10,7 +10,8 @@ vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
 
 -- greatest remap ever
-vim.keymap.set('x', '<leader>p', [["_dP]], { desc = 'Send highlighted to hole and pastes registery.' })
+vim.keymap.set('n', '<leader>p', [["_dP]], { desc = 'Send highlighted to hole and pastes registery.' })
+vim.keymap.set('v', '<leader>p', [["_dP]], { desc = 'Send highlighted to hole and pastes registery.' })
 
 -- next greatest remap ever : asbjornHaland
 vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]], { silent = true, desc = 'Yank to system clipboard' })
@@ -40,5 +41,5 @@ vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { silent = true, des
 vim.cmd([[cab cc CodeCompanion]])
 
 -- Terminal
-vim.keymap.set('t', '<leader>t', '<C-\\><C-n>:ToggleTerm<CR>', { desc = 'Toggle terminal'})
-vim.keymap.set('n', '<leader>t', ':ToggleTerm<CR>', { desc = 'Toggle terminal'})
+vim.keymap.set('t', '<C-t>', '<C-\\><C-n>:ToggleTerm<CR>', { desc = 'Toggle terminal'})
+vim.keymap.set('n', '<C-t>', ':ToggleTerm<CR>', { desc = 'Toggle terminal'})

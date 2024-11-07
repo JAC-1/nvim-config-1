@@ -13,7 +13,7 @@ return {
       require('codecompanion').setup {
         strategies = {
           chat = {
-            adapter = 'copilot',
+            adapter = 'anthropic_sonnet',
           },
           inline = {
             adapter = 'copilot',
@@ -24,9 +24,9 @@ return {
         },
         display = {
           chat = {
-            window = {
-              layout = 'float',
-            },
+            -- window = {
+            --   layout = 'float',
+            -- },
             diff = {
               enabled = false,
             },
