@@ -3,6 +3,7 @@ return {
   {
     'olimorris/codecompanion.nvim',
     dependencies = {
+      { 'MeanderingProgrammer/render-markdown.nvim', ft = { 'markdown', 'codecompanion' } }, -- Optional: For prettier markdown rendering
       'nvim-lua/plenary.nvim',
       'nvim-treesitter/nvim-treesitter',
       'hrsh7th/nvim-cmp', -- Optional: For using slash commands and variables in the chat buffer
