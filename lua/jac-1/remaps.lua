@@ -32,13 +32,18 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 
 
 -- Ai
-vim.keymap.set("n", "<C-a>", "<cmd>CodeCompanionActions<cr>", { silent = true, desc = "Open CodeCompanion Actions" })
-vim.keymap.set("v", "<C-a>", "<cmd>CodeCompanionActions<cr>", { silent = true, desc = "Open CodeCompanion Actions" })
-vim.keymap.set("n", "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", { silent = true, desc = "Toggle CodeCompanion Chat"})
-vim.keymap.set("v", "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", { silent = true, desc = "Toggle CodeCompanion Chat" })
-vim.keymap.set("t", "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", { silent = true, desc = "Toggle CodeCompanion Chat" })
-vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { silent = true, desc = "Add to CodeCompanion Chat"})
-vim.cmd([[cab cc CodeCompanion]])
+-- vim.keymap.set("n", "<C-a>", "<cmd>CodeCompanionActions<cr>", { silent = true, desc = "Open CodeCompanion Actions" })
+-- vim.keymap.set("v", "<C-a>", "<cmd>CodeCompanionActions<cr>", { silent = true, desc = "Open CodeCompanion Actions" })
+-- vim.keymap.set("n", "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", { silent = true, desc = "Toggle CodeCompanion Chat"})
+-- vim.keymap.set("v", "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", { silent = true, desc = "Toggle CodeCompanion Chat" })
+-- vim.keymap.set("t", "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", { silent = true, desc = "Toggle CodeCompanion Chat" })
+-- vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { silent = true, desc = "Add to CodeCompanion Chat"})
+-- vim.cmd([[cab cc CodeCompanion]])
+
+vim.keymap.set("n", "<leader>cc", "<cmd>CopilotChatToggle<cr>", { silent = true, desc = "Toggle CodeCompanion Chat"})
+vim.keymap.set("v", "<leader>cc", "<cmd>CopilotChatToggle<cr>", { silent = true, desc = "Toggle CodeCompanion Chat" })
+vim.keymap.set("t", "<leader>cc", "<cmd>CopilotChatToggle<cr>", { silent = true, desc = "Toggle CodeCompanion Chat" })
+
 
 -- Terminal
 vim.keymap.set('t', '<C-t>', '<C-\\><C-n>:ToggleTerm<CR>', { desc = 'Toggle terminal'})

@@ -21,7 +21,7 @@ return {
             '       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ',
             '                                   ',
             '              Code Artistry              ',
-            '     Crafting Tomorrow\'s Solutions Today    ',
+            "     Crafting Tomorrow's Solutions Today    ",
             '                                   ',
           },
           center = {
@@ -55,8 +55,15 @@ return {
               key = 'c',
               -- keymap = 'SPC s n',
               action = function()
-                vim.cmd('cd ~/.config/nvim')
-                vim.cmd('Telescope find_files')
+                local os_name = vim.loop.os_uname().sysname
+                print(os_name)
+                if os_name ==  "Windows_NT" then
+                  vim.cmd 'cd C:/Users/Justin/AppData/Local/nvim'
+                else
+                  vim.cmd 'cd ~/.config/nvim'
+                end
+                -- vim.cmd 'cd ~/.config/nvim'
+                vim.cmd 'Telescope find_files'
               end,
             },
             {
