@@ -3,6 +3,9 @@ require 'jac-1.remaps'
 require 'jac-1.autocommands'
 require 'jac-1.plugins'
 
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -486,13 +489,6 @@ require('lazy').setup({
     end,
   },
 
-  {
-    'folke/tokyonight.nvim',
-    priority = 1000, -- Make sure to load this before all the other start plugins.
-    init = function()
-      vim.cmd.colorscheme 'tokyonight-storm'
-    end,
-  },
   {
     'ThePrimeagen/harpoon',
     branch = 'harpoon2',
