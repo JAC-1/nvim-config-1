@@ -14,7 +14,7 @@ return {
       require('codecompanion').setup {
         strategies = {
           chat = {
-            adapter = 'anthropic_sonnet',
+            adapter = 'copilot',
           },
           inline = {
             adapter = 'copilot',

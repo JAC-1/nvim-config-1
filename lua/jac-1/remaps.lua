@@ -21,10 +21,15 @@ vim.keymap.set({ 'n', 'v' }, '<leader>dd', [["_d]], { desc = 'Send to hole' })
 
 vim.keymap.set('n', '<C-s>', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Edit all words under cursor.' })
 
-vim.keymap.set('n', '<A-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<A-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<A-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<A-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+-- vim.keymap.set('n', '<A-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+-- vim.keymap.set('n', '<A-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+-- vim.keymap.set('n', '<A-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+-- vim.keymap.set('n', '<A-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Focus left window' })
+vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Focus right window' })
+vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Focus lower window' })
+vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Focus upper window' })
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
@@ -50,4 +55,7 @@ vim.keymap.set('t', '<C-t>', '<C-\\><C-n>:ToggleTerm<CR>', { desc = 'Toggle term
 vim.keymap.set('n', '<C-t>', ':ToggleTerm<CR>', { desc = 'Toggle terminal'})
 
 -- Neotree
-vim.keymap.set('n', '<leader>e', ':Neotree<CR>', { desc = 'Toggle Neotree'})
+-- vim.keymap.set('n', '<leader>e', ':Neotree<CR>', { desc = 'Toggle Neotree'})
+
+-- Netrw 
+vim.keymap.set('n', '<leader>e', ':Ex<CR>', { desc = 'Toggle Netrw'})

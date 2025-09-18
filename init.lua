@@ -128,6 +128,15 @@ require('lazy').setup({
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
           },
+          -- also search for hidden and linked files
+          fzf = {
+            fuzzy = true, -- false will only do exact matching
+            override_generic_sorter = true, -- override the generic sorter
+            override_file_sorter = true, -- override the file sorter
+            case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
+            -- the default case_mode is "smart_case"
+          },
+
         },
       }
 
@@ -275,7 +284,7 @@ require('lazy').setup({
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
-        -- rust_analyzer = {},
+        rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -461,12 +470,12 @@ require('lazy').setup({
           --
           -- <c-l> will move you to the right of each of the expansion locations.
           -- <c-h> is similar, except moving you backwards.
-          ['<C-l>'] = cmp.mapping(function()
+          ['<A-l>'] = cmp.mapping(function()
             if luasnip.expand_or_locally_jumpable() then
               luasnip.expand_or_jump()
             end
           end, { 'i', 's' }),
-          ['<C-h>'] = cmp.mapping(function()
+          ['<A-h>'] = cmp.mapping(function()
             if luasnip.locally_jumpable(-1) then
               luasnip.jump(-1)
             end
@@ -486,76 +495,6 @@ require('lazy').setup({
           { name = 'path' },
         },
       }
-    end,
-  },
-
-  {
-    'ThePrimeagen/harpoon',
-    branch = 'harpoon2',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      local harpoon = require 'harpoon'
-      harpoon:setup()
-      vim.keymap.set('n', '<leader>a', function()
-        harpoon:list():add()
-      end)
-      vim.keymap.set('n', '<C-e>', function()
-        harpoon.ui:toggle_quick_menu(harpoon:list())
-      end)
-
-      vim.keymap.set('n', '<C-h>', function()
-        harpoon:list():select(1)
-      end)
-      vim.keymap.set('n', '<C-j>', function()
-        harpoon:list():select(2)
-      end)
-      vim.keymap.set('n', '<C-k>', function()
-        harpoon:list():select(3)
-      end)
-      vim.keymap.set('n', '<C-l>', function()
-        harpoon:list():select(4)
-      end)
-
-      vim.keymap.set('t', '<C-h>', function()
-        harpoon:list():select(1)
-      end)
-      vim.keymap.set('t', '<C-j>', function()
-        harpoon:list():select(2)
-      end)
-      vim.keymap.set('t', '<C-k>', function()
-        harpoon:list():select(3)
-      end)
-      vim.keymap.set('t', '<C-l>', function()
-        harpoon:list():select(4)
-      end)
-
-      -- Toggle previous & next buffers stored within Harpoon list
-      vim.keymap.set('n', '<C-S-P>', function()
-        harpoon:list():prev()
-      end)
-      vim.keymap.set('n', '<C-S-N>', function()
-        harpoon:list():next()
-      end)
-      -- -- basic telescope configuration
-      -- local conf = require("telescope.config").values
-      -- local function toggle_telescope(harpoon_files)
-      --     local file_paths = {}
-      --     for _, item in ipairs(harpoon_files.items) do
-      --         table.insert(file_paths, item.value)
-      --     end
-      --
-      --     require("telescope.pickers").new({}, {
-      --         prompt_title = "Harpoon",
-      --         finder = require("telescope.finders").new_table({
-      --             results = file_paths,
-      --         }),
-      --         previewer = conf.file_previewer({}),
-      --         sorter = conf.generic_sorter({}),
-      --     }):find()
-      -- end
-      --
-      -- vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end,
-      --     { desc = "Open harpoon window" })
     end,
   },
 
