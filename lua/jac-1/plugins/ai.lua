@@ -33,33 +33,33 @@ return {
             },
           },
         },
-        adapters = {
-          anthropic_sonnet = function()
-            return require('codecompanion.adapters').extend('anthropic', {
-              env = {
-                api_key = 'cmd:pass show Anthropic/api_key',
-              },
-              schema = {
-                model = {
-                  default = 'claude-3-5-sonnet-20241022',
-                },
-              },
-            })
-          end,
-
-          anthropic_hiku = function()
-            return require('codecompanion.adapters').extend('anthropic', {
-              env = {
-                api_key = 'cmd:pass show Anthropic/api_key',
-              },
-              schema = {
-                model = {
-                  default = 'claude-3-haiku-20240307',
-                },
-              },
-            })
-          end,
-        },
+    --     adapters = {
+    --       anthropic_sonnet = function()
+    --         return require('codecompanion.adapters').extend('anthropic', {
+    --           env = {
+    --             api_key = 'cmd:pass show Anthropic/api_key',
+    --           },
+    --           schema = {
+    --             model = {
+    --               default = 'claude-3-5-sonnet-20241022',
+    --             },
+    --           },
+    --         })
+    --       end,
+    --
+    --       anthropic_hiku = function()
+    --         return require('codecompanion.adapters').extend('anthropic', {
+    --           env = {
+    --             api_key = 'cmd:pass show Anthropic/api_key',
+    --           },
+    --           schema = {
+    --             model = {
+    --               default = 'claude-3-haiku-20240307',
+    --             },
+    --           },
+    --         })
+    --       end,
+    --     },
       }
     end,
   },

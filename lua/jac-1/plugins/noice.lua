@@ -4,7 +4,9 @@ return {
     'MunifTanjim/nui.nvim',
   },
  config = function()
-    require('noice').setup {
+    local noice = require('noice')
+    vim.keymap.set('n', '<leader>k', vim.diagnostic.open_float, { desc = 'Show diagnostics in popup' })
+    noice.setup {
       lsp = {
         override = {
           ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
