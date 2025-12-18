@@ -57,20 +57,20 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selection up' })
 -- These keymaps open a terminal with Claude Code CLI for AI assistance
 -- Note: Requires Claude Code CLI to be installed and available in PATH
 utils.SetKeymap('n', '<leader>ac', function()
-  -- Check if 'code' command is available
-  local has_code = vim.fn.executable 'code' == 1
-  if not has_code then
-    vim.notify('Claude Code CLI not found. Please install it first.', vim.log.levels.WARN)
+  -- Check if 'copilot' command is available
+  local has_copilot = vim.fn.executable 'copilot' == 1
+  if not has_copilot then
+    vim.notify('GitHub Copilot CLI not found. Please install it first.', vim.log.levels.WARN)
     return
   end
 
   vim.cmd 'ToggleTerm'
-  -- Delay is configurable via vim.g.claude_code_delay (default: 150ms)
-  local delay = vim.g.claude_code_delay or 150
+  -- Delay is configurable via vim.g.copilot_cli_delay (default: 150ms)
+  local delay = vim.g.copilot_cli_delay or 150
   vim.defer_fn(function()
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('icode<CR>', true, false, true), 'n', false)
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('copilot chat<CR>', true, false, true), 'n', false)
   end, delay)
-end, { desc = 'Open Claude Code in terminal' })
+end, { desc = 'Open Copilot CLI chat in terminal' })
 
 utils.SetKeymap('n', '<leader>at', function()
   vim.cmd 'ToggleTerm'
