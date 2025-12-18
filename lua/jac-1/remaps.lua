@@ -1,4 +1,6 @@
 -- Other keymaps can be found in the plugin configs
+-- Import utilities
+local utils = require 'jac-1.utils'
 
 vim.keymap.set('i', 'jj', '<ESC>', { silent = true })
 vim.keymap.set('n', ';', ':')
@@ -47,17 +49,40 @@ vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', { desc = 'Increase w
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selection down' })
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selection up' })
 
+-- ============================================================================
+-- AI Assistant Keymaps
+-- ============================================================================
 
--- Code Companion
-vim.keymap.set('n', '<C-a>', '<cmd>CodeCompanionActions<cr>', { silent = true, desc = 'Open CodeCompanion Actions' })
-vim.keymap.set('v', '<C-a>', '<cmd>CodeCompanionActions<cr>', { silent = true, desc = 'Open CodeCompanion Actions' })
-vim.keymap.set('n', '<leader>cc', '<cmd>CodeCompanionChat Toggle<cr>', { silent = true, desc = 'Toggle CodeCompanion Chat' })
-vim.keymap.set('v', '<leader>cc', '<cmd>CodeCompanionChat Toggle<cr>', { silent = true, desc = 'Toggle CodeCompanion Chat' })
-vim.keymap.set('t', '<leader>cc', '<cmd>CodeCompanionChat Toggle<cr>', { silent = true, desc = 'Toggle CodeCompanion Chat' })
-vim.keymap.set('v', 'ga', '<cmd>CodeCompanionChat Add<cr>', { silent = true, desc = 'Add to CodeCompanion Chat' })
-vim.keymap.set('v', '<C-CR>', [[:CodeCompanion ]], { desc = 'CodeCompanion Inline' })
+-- Claude Code via terminal integration
+-- These keymaps open a terminal with Claude Code CLI for AI assistance
+-- Note: Requires Claude Code CLI to be installed and available in PATH
+utils.SetKeymap('n', '<leader>ac', function()
+  -- Check if 'code' command is available
+  local has_code = vim.fn.executable 'code' == 1
+  if not has_code then
+    vim.notify('Claude Code CLI not found. Please install it first.', vim.log.levels.WARN)
+    return
+  end
 
+  vim.cmd 'ToggleTerm'
+  -- Delay is configurable via vim.g.claude_code_delay (default: 150ms)
+  local delay = vim.g.claude_code_delay or 150
+  vim.defer_fn(function()
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('icode<CR>', true, false, true), 'n', false)
+  end, delay)
+end, { desc = 'Open Claude Code in terminal' })
 
+utils.SetKeymap('n', '<leader>at', function()
+  vim.cmd 'ToggleTerm'
+end, { desc = 'Toggle terminal for AI commands' })
+
+-- GitHub Copilot CLI integration (requires GitHub Copilot CLI installation)
+-- Use 'gh copilot suggest' for command suggestions
+-- Use 'gh copilot explain' for command explanations
+
+-- ============================================================================
+-- Terminal Keymaps
+-- ============================================================================
 
 -- Exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
