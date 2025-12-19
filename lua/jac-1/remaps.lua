@@ -68,7 +68,7 @@ utils.SetKeymap('n', '<leader>ac', function()
   -- Delay is configurable via vim.g.copilot_cli_delay (default: 150ms)
   local delay = vim.g.copilot_cli_delay or 150
   vim.defer_fn(function()
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('copilot chat<CR>', true, false, true), 'n', false)
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('copilot<CR>', true, false, true), 'n', false)
   end, delay)
 end, { desc = 'Open Copilot CLI chat in terminal' })
 
