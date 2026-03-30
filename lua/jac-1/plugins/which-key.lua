@@ -1,59 +1,39 @@
--- ============================================================================
--- which-key: Display pending keybindings in a popup
--- ============================================================================
--- Shows available keybindings as you type, making discoverability easier.
--- ============================================================================
-
 return {
   'folke/which-key.nvim',
   event = 'VimEnter',
   opts = {
+    delay = 400,
     icons = {
-      -- set icon mappings to true if you have a Nerd Font
       mappings = vim.g.have_nerd_font,
-      -- If you are using a Nerd Font: set icons.keys to an empty table which will use the
-      -- default which-key.nvim defined Nerd Font icons, otherwise define a string table
       keys = vim.g.have_nerd_font and {} or {
-        Up = '<Up> ',
-        Down = '<Down> ',
-        Left = '<Left> ',
-        Right = '<Right> ',
-        C = '<C-…> ',
-        M = '<M-…> ',
-        D = '<D-…> ',
-        S = '<S-…> ',
-        CR = '<CR> ',
-        Esc = '<Esc> ',
-        ScrollWheelDown = '<ScrollWheelDown> ',
-        ScrollWheelUp = '<ScrollWheelUp> ',
-        NL = '<NL> ',
-        BS = '<BS> ',
-        Space = '<Space> ',
-        Tab = '<Tab> ',
-        F1 = '<F1>',
-        F2 = '<F2>',
-        F3 = '<F3>',
-        F4 = '<F4>',
-        F5 = '<F5>',
-        F6 = '<F6>',
-        F7 = '<F7>',
-        F8 = '<F8>',
-        F9 = '<F9>',
-        F10 = '<F10>',
-        F11 = '<F11>',
-        F12 = '<F12>',
+        Up = '<Up>',
+        Down = '<Down>',
+        Left = '<Left>',
+        Right = '<Right>',
+        C = '<C->',
+        M = '<M->',
+        CR = '<CR>',
+        Esc = '<Esc>',
+        Space = '<Space>',
+        Tab = '<Tab>',
       },
     },
-
-    -- Document existing key chains
     spec = {
-      { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
-      { '<leader>d', group = '[D]ocument' },
-      { '<leader>r', group = '[R]ename' },
-      { '<leader>s', group = '[S]earch' },
-      { '<leader>w', group = '[W]orkspace' },
-      { '<leader>t', group = '[T]oggle' },
-      { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+      -- Top-level groups
+      { '<leader>a', group = 'AI (Avante)', icon = '' },
+      { '<leader>c', group = 'Code', mode = { 'n', 'x' }, icon = '' },
+      { '<leader>g', group = 'Git', icon = '' },
+      { '<leader>h', group = 'Harpoon', icon = '' },
+      { '<leader>s', group = 'Search', icon = '' },
+      { '<leader>t', group = 'Test', icon = '' },
+      { '<leader>x', group = 'Diagnostics', icon = '' },
+      { '<leader>u', group = 'UI', icon = '' },
+      { '<leader>r', group = 'Rust', icon = '' },
+      -- Non-leader groups
+      { 'gz', group = 'Surround' },
+      { 'g', group = 'Go to' },
+      { ']', group = 'Next' },
+      { '[', group = 'Prev' },
     },
   },
 }

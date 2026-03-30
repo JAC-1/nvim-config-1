@@ -1,19 +1,22 @@
--- Autocmd for Copilot Chat window styling
+-- Close certain utility windows with q
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'copilot-chat',
-  callback = function()
-    -- Debug print to verify trigger
-    print('Copilot chat autocmd triggered for filetype: ' .. vim.bo.filetype)
+  pattern = {
+    'help',
+    'man',
+    'qf',
+    'checkhealth',
+    'lspinfo',
+    'startuptime',
+  },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set('n', 'q', '<cmd>close<cr>', { buffer = event.buf, silent = true })
+  end,
+})
 
-    -- Defer the window resize and settings to ensure window is ready
-    vim.schedule(function()
-      vim.cmd 'vertical resize 70'
-      vim.cmd 'setlocal nonumber'
-      vim.cmd 'setlocal norelativenumber'
-      vim.cmd 'setlocal signcolumn=no'
-      vim.cmd 'setlocal foldcolumn=0'
-      vim.cmd 'setlocal laststatus=0'
-      vim.cmd 'setlocal sidescrolloff=10'
-    end)
+-- Highlight text on yank
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank { higroup = 'Visual', timeout = 150 }
   end,
 })
